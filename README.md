@@ -1,2 +1,2 @@
 # PioneerLib
-The official standard library for the PioneerOS.
+A standard library implementation subset along with a maths based library.
