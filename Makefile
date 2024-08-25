@@ -4,7 +4,12 @@ clean:
 	@ rm -rf ./build
 	@ rm -rf ./html
 
-test: generate-lib
+test: generate-lib 
+	@ cd build && \
+	make test && \
+	./test
+
+test-ci: generate-lib-ci
 	@ cd build && \
 	make test && \
 	./test
@@ -21,6 +26,12 @@ generate-lib:
 	@ mkdir -p build && \
 	cd build && \
 	cmake .. && \
+	make
+
+generate-lib-ci:
+	@ mkdir -p build && \
+	cd build && \
+	cmake .. -DCI=ON && \
 	make
 
 

@@ -21,7 +21,7 @@ jobs:
     - name: Install Cpplint
       run: |
         sudo apt-get update
-        sudo apt-get install python-pip
+        sudo apt-get install python3-pip
         pip install --user cpplint
     - name: Run Linting
       run: make test-lint
@@ -31,5 +31,5 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Run Test Suite
-      run: make test
+      run: make test-ci
     

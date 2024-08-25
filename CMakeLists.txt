@@ -23,7 +23,17 @@ include(./CMakeSources.cmake)
 add_library(${PIONEER_LIB} SHARED ${SRC_FILES})
 
 # Add Testing Libraries
-find_package(Catch2 3 REQUIRED)
+if (DEFINED ${CI})
+  Include(FetchContent)
+  FetchContent_Declare(
+    Catch2
+    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+    GIT_TAG        v3.4.0 # or a later release
+  )
+  FetchContent_MakeAvailable(Catch2)
+else ()
+  find_package(Catch2 3 REQUIRED)
+endif()
 
 add_executable(${TEST_EXE} ${TEST_SRC_FILES})
 target_link_libraries(${TEST_EXE} PRIVATE 
