@@ -23,7 +23,8 @@ include(./CMakeSources.cmake)
 add_library(${PIONEER_LIB} SHARED ${SRC_FILES})
 
 # Add Testing Libraries
-if (DEFINED ${CI})
+if (${CI})
+  message("Installing Catch2")
   Include(FetchContent)
   FetchContent_Declare(
     Catch2
@@ -32,6 +33,7 @@ if (DEFINED ${CI})
   )
   FetchContent_MakeAvailable(Catch2)
 else ()
+  message("NOT WORKED")
   find_package(Catch2 3 REQUIRED)
 endif()
 
