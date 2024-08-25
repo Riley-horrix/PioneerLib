@@ -8,14 +8,13 @@
  * Copyright (c) Riley Horrix 2024
  */
 
-#include "core/Logger.h"
-
 #include <catch2/catch_test_macros.hpp>
+
+#include "core/Logger.h"
 
 using namespace pioneer;
 
 TEST_CASE("Logger Test", "[logger]") {
-
   info("[logger] This message should be %s", "normal");
   warn("[logger] This message should be in %s", "yellow");
   error("[logger] This message should be in %s", "red");

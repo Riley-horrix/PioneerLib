@@ -6,8 +6,9 @@
  * @date 2024-08-24
  * 
  * Copyright (c) Riley Horrix 2024
- * 
  */
+#pragma once
+
 #include "core/Exception.h"
 
 namespace pioneer {
@@ -21,6 +22,13 @@ public:
   BadEitherAccess();
 };
 
+/**
+ * @class Either
+ * @brief A container for one of two types.
+ * 
+ * @tparam First
+ * @tparam Second 
+ */
 template<class First, class Second> class Either {
 public:
   /**
@@ -28,7 +36,7 @@ public:
    * 
    * @param first Value to be stored
    */
-  Either(First first) {
+  explicit Either(const First& first) {
     type = FIRST;
     data.first = first;
   }
@@ -38,7 +46,7 @@ public:
    * 
    * @param second Value to be stored
    */
-  Either(Second second) {
+  explicit Either(const Second& second) {
     type = SECOND;
     data.second = second;
   }
@@ -48,7 +56,7 @@ public:
    * 
    * @param value The value to hold.
    */
-  void set(First value) {
+  void set(const First& value) {
     type = FIRST;
     data.first = value;
   }
@@ -58,7 +66,7 @@ public:
    * 
    * @param value The value to hold.
    */
-  void set(Second value) {
+  void set(const Second& value) {
     type = SECOND;
     data.second = value;
   }
@@ -123,4 +131,4 @@ private:
   } data;
 };
 
-} // namespace pioneer
+}  // namespace pioneer

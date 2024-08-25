@@ -3,3 +3,7 @@ build
 
 # IDE artifacts
 .vscode
+
+# Doxygen
+html
+latex

@@ -14,5 +14,7 @@
 
 using namespace pioneer;
 
-BadEitherAccess::BadEitherAccess(): LogicError("[BadEitherAccess] :: Tried to access the wrong type in an Either object. Check the type before accessing the object.") {
+BadEitherAccess::BadEitherAccess():
+  LogicError("[BadEitherAccess] :: Tried to access the wrong type in an "
+  "Either object. Check the type before accessing the object.") {
 }

@@ -16,7 +16,8 @@ using namespace pioneer;
 
 Exception::Exception() noexcept : message("A generic exception") {}
 
-Exception::Exception(const Exception& other) noexcept : message(other.what())  {}
+Exception::Exception(const Exception& other) noexcept
+  : message(other.what()) {}
 
 Exception& Exception::operator=(const Exception& other) noexcept {
   message = other.what();

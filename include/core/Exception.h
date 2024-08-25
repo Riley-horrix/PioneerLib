@@ -12,7 +12,7 @@
 #include <string>
 
 namespace pioneer {
-  
+
 /**
  * @class Exception
  * @brief Represents a generic exception.
@@ -58,8 +58,12 @@ protected:
  */
 class LogicError : public Exception {
 public:
-  LogicError(const std::string& message) noexcept;
-  virtual ~LogicError();
+  /**
+   * @brief Construct a new Logic Error object with a specific message.
+   * 
+   * @param message The error message.
+   */
+  explicit LogicError(const std::string& message) noexcept;
 };
 
 /**
@@ -68,8 +72,12 @@ public:
  */
 class RuntimeError : public Exception {
 public:
-  RuntimeError(const std::string& message) noexcept;
-  virtual ~RuntimeError();
+/**
+   * @brief Construct a new Runtime Error object with a specific message.
+   * 
+   * @param message The error message.
+   */
+  explicit RuntimeError(const std::string& message) noexcept;
 };
 
-} // namespace pioneer
+}  // namespace pioneer

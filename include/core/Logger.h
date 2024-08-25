@@ -7,17 +7,19 @@
  * 
  * Copyright (c) Riley Horrix 2024
  */
-
 #pragma once
-
-#include "container/Either.h"
 
 #include <string>
 #include <fstream>
 #include <cstdio>
 
+#include "container/Either.h"
+
 namespace pioneer {
 
+/**
+ * @brief Provides file logging functionality.
+ */
 class Logger {
 public:
   /**
@@ -25,15 +27,15 @@ public:
    * 
    * @param filepath The file to redirect both out and errors to.
    */
-  Logger(std::string filepath);
+  explicit Logger(const std::string& filepath);
 
   /**
    * @brief Construct a new Logger object, redirecting out and error.
    * 
-   * @param outfile The filepath to redirect stdout to.
-   * @param errfile The filepath to redirect stderr to.
+   * @param outFile The filepath to redirect stdout to.
+   * @param errFile The filepath to redirect stderr to.
    */
-  Logger(std::string outFile, std::string errFile);
+  Logger(const std::string& outFile, const std::string& errFile);
 
   /**
    * @brief Destroy the Logger object
@@ -47,7 +49,7 @@ public:
    * @param ... The variable args
    * @return Number of characters written or -1 if a write error occurred.
    */
-  int info(std::string format, ...);
+  int info(const std::string& format, ...);
 
   /**
    * @brief Log a warning to the logger. 
@@ -56,7 +58,7 @@ public:
    * @param ... The variable args
    * @return Number of characters written or -1 if a write error occurred.
    */
-  int warn(std::string format, ...);
+  int warn(const std::string& format, ...);
 
   /**
    * @brief Log an error to the logger. This message will be written to the error file.
@@ -65,18 +67,18 @@ public:
    * @param ... The variable args
    * @return Number of characters written or -1 if a write error occurred.
    */
-  int error(std::string format, ...);
+  int error(const std::string& format, ...);
 
 private:
   /**
    * @brief The file regular log messages will be written to.
    */
-  std::ofstream outFile;
+  std::ofstream logFile;
 
   /**
    * @brief The file error messages will be written to.
    */
-  std::ofstream logFile;
+  std::ofstream errFile;
 };
 
 // Public global logging functions
@@ -111,4 +113,4 @@ private:
 #define error(format, ...) \
   printf("\033[91m" format "\033[0m\n", __VA_ARGS__)
 
-} // namespace pioneer
+}  // namespace pioneer
