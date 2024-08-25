@@ -49,6 +49,7 @@ public:
   virtual const char* what() const noexcept;
 
 protected:
+  //! @brief The stored exception message.
   std::string message;
 };
 

@@ -36,12 +36,8 @@ LogicError::LogicError(const std::string& message) noexcept {
   this->message.assign(message);
 }
 
-LogicError::~LogicError() {}
-
 // RuntimeError
 
 RuntimeError::RuntimeError(const std::string& message) noexcept {
   this->message.assign(message);
 }
-
-RuntimeError::~RuntimeError() {}

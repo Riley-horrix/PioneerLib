@@ -5,5 +5,7 @@ build
 .vscode
 
 # Doxygen
-html
-latex
+doc
+
+# Other artifacts
+.DS_store
